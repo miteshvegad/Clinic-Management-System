@@ -1,0 +1,943 @@
+============================================================
+          🏥 CLINIC MANAGEMENT SYSTEM
+              1-DAY TEAM PROJECT
+============================================================
+
+TEAM:
+2 people
+
+TIME:
+Approximately 5–7 focused hours
+
+DIFFICULTY:
+🟡 Medium → 🔴 Hard
+
+TOOLS:
+Python
+VS Code
+VS Code Live Share
+Git + GitHub
+
+IMPORTANT:
+The goal is NOT to build a huge application.
+
+The goal is to build a COMPLETE SMALL APPLICATION
+in ONE DAY and have BOTH developers understand it.
+
+============================================================
+                    🎯 PROJECT GOAL
+============================================================
+
+Build a terminal-based Clinic Management System.
+
+The system will manage only FOUR main things:
+
+    👤 Patients
+    👨‍⚕️ Doctors
+    📅 Appointments
+    💰 Billing
+
+At the end, the program should be able to:
+
+    Add patients
+    Add doctors
+    Create appointments
+    Create bills
+    Search data
+    Show basic reports
+    Save data
+    Load data
+
+That's it.
+
+Do NOT add authentication, medical records,
+advanced analytics, or complicated features
+until the basic version is finished.
+
+
+============================================================
+                🧠 WHAT YOU WILL PRACTICE
+============================================================
+
+Python:
+
+✓ Variables
+✓ Lists
+✓ Dictionaries
+✓ Conditions
+✓ Loops
+✓ Functions
+✓ Return values
+✓ Searching
+✓ Validation
+✓ File handling
+✓ JSON
+✓ Exception handling
+✓ Modules
+
+Teamwork:
+
+✓ Git
+✓ GitHub
+✓ Live Share
+✓ Dividing work
+✓ Integrating code
+✓ Code review
+✓ Testing
+
+
+============================================================
+                📁 PROJECT STRUCTURE
+============================================================
+
+Start with:
+
+ClinicManagement/
+│
+├── main.py
+├── patients.py
+├── doctors.py
+├── appointments.py
+├── billing.py
+├── reports.py
+│
+├── data/
+│
+└── README.md
+
+
+Do NOT create more files unless you actually need them.
+
+
+============================================================
+                 👥 TEAM DIVISION
+============================================================
+
+             DEVELOPER A
+                   │
+          ┌────────┴────────┐
+          ↓                 ↓
+      PATIENTS           DOCTORS
+
+
+             DEVELOPER B
+                   │
+          ┌────────┴────────┐
+          ↓                 ↓
+     APPOINTMENTS        BILLING
+
+
+             BOTH
+              │
+      ┌───────┼────────┐
+      ↓       ↓        ↓
+    main    reports   testing
+
+
+============================================================
+              ⏱️ ONE-DAY PLAN
+============================================================
+
+
+🕘 HOUR 0 — PLANNING
+====================
+
+TIME:
+15–20 minutes
+
+DO NOT CODE YET.
+
+Together decide:
+
+1. What data will each object contain?
+2. What functions are needed?
+3. What does each function return?
+4. Which developer owns which module?
+5. How will modules communicate?
+
+Write the decisions in README.md.
+
+
+============================================================
+              🕘 HOUR 1 — PATIENTS
+============================================================
+
+DEVELOPER A
+
+Create patient management.
+
+Patient structure:
+
+{
+    "id": "P001",
+    "name": "Rahul",
+    "age": 24,
+    "phone": "9876543210"
+}
+
+
+Implement:
+
+add_patient()
+view_patients()
+search_patient()
+delete_patient()
+
+
+Minimum requirement:
+
+✓ Add
+✓ View
+✓ Search
+✓ Delete
+
+
+Example:
+
+Add Patient
+
+ID:
+P001
+
+Name:
+Rahul
+
+Age:
+24
+
+Phone:
+9876543210
+
+
+Output:
+
+Patient added successfully.
+
+
+Search:
+
+P001
+
+
+Output:
+
+Patient found:
+Rahul
+
+
+============================================================
+              🕘 HOUR 1 — DOCTORS
+============================================================
+
+DEVELOPER A
+
+Doctor structure:
+
+{
+    "id": "D001",
+    "name": "Dr. Sharma",
+    "specialization": "Cardiology",
+    "fee": 800
+}
+
+
+Implement:
+
+add_doctor()
+view_doctors()
+search_doctor()
+
+
+Minimum requirement:
+
+✓ Add
+✓ View
+✓ Search
+
+
+============================================================
+             🕙 HOUR 2 — APPOINTMENTS
+============================================================
+
+DEVELOPER B
+
+Appointment structure:
+
+{
+    "id": "A001",
+    "patient_id": "P001",
+    "doctor_id": "D001",
+    "date": "2026-08-10",
+    "time": "10:30"
+}
+
+
+Implement:
+
+create_appointment()
+view_appointments()
+cancel_appointment()
+
+
+IMPORTANT:
+
+Before creating an appointment:
+
+Check:
+
+✓ Patient exists
+✓ Doctor exists
+✓ Appointment ID is unique
+
+
+Example:
+
+P001
+D001
+10:30
+
+
+Output:
+
+Appointment created successfully.
+
+
+============================================================
+              🕙 HOUR 2 — BILLING
+============================================================
+
+DEVELOPER B
+
+Bill structure:
+
+{
+    "bill_id": "B001",
+    "patient_id": "P001",
+    "doctor_fee": 800,
+    "medicine": 450,
+    "test": 300
+}
+
+
+Calculate:
+
+subtotal =
+doctor_fee + medicine + test
+
+
+Implement:
+
+create_bill()
+view_bills()
+
+
+Example:
+
+Doctor Fee: ₹800
+Medicine: ₹450
+Test: ₹300
+
+Total: ₹1550
+
+
+============================================================
+             🕚 HOUR 3 — INTEGRATION
+============================================================
+
+NOW BOTH WORK TOGETHER.
+
+This is important.
+
+Connect:
+
+Patient
+   ↓
+Doctor
+   ↓
+Appointment
+   ↓
+Bill
+
+
+For example:
+
+When creating an appointment:
+
+Does patient P001 exist?
+
+Use the patient module.
+
+Does doctor D001 exist?
+
+Use the doctor module.
+
+
+Do NOT duplicate the same searching logic everywhere.
+
+
+Example interface:
+
+patient_exists("P001")
+
+doctor_exists("D001")
+
+
+The exact function names are your decision.
+
+
+============================================================
+              🕛 HOUR 4 — MAIN MENU
+============================================================
+
+BOTH
+
+Build main.py.
+
+Example:
+
+========================================
+       CLINIC MANAGEMENT SYSTEM
+========================================
+
+1. Patients
+2. Doctors
+3. Appointments
+4. Billing
+5. Reports
+6. Save Data
+7. Load Data
+8. Exit
+
+Choice:
+
+
+Each option should call the appropriate module.
+
+
+IMPORTANT:
+
+main.py should NOT contain all the actual logic.
+
+It should mainly control the application flow.
+
+
+============================================================
+              🕐 HOUR 4 — REPORTS
+============================================================
+
+BOTH
+
+Keep reports SIMPLE.
+
+Implement:
+
+1. Total patients
+2. Total doctors
+3. Total appointments
+4. Total bills
+5. Total revenue
+
+
+Example:
+
+================================
+          REPORT
+================================
+
+Patients       : 12
+Doctors        : 4
+Appointments   : 15
+Bills          : 10
+
+Total Revenue  : ₹12,500
+
+================================
+
+
+============================================================
+             🕑 HOUR 5 — SAVE DATA
+============================================================
+
+BOTH
+
+Add JSON persistence.
+
+Save:
+
+patients
+doctors
+appointments
+bills
+
+
+Example:
+
+data/
+│
+├── patients.json
+├── doctors.json
+├── appointments.json
+└── bills.json
+
+
+Implement something like:
+
+save_data()
+load_data()
+
+
+The exact design is up to you.
+
+
+============================================================
+             🕒 HOUR 5 — ERROR HANDLING
+============================================================
+
+BOTH
+
+Handle common mistakes.
+
+Example:
+
+Age:
+
+abc
+
+
+Expected:
+
+ERROR:
+Please enter a valid number.
+
+
+Unknown patient:
+
+P999
+
+
+Expected:
+
+ERROR:
+Patient does not exist.
+
+
+Duplicate ID:
+
+P001
+
+
+Expected:
+
+ERROR:
+ID already exists.
+
+
+Negative bill:
+
+-500
+
+
+Expected:
+
+ERROR:
+Amount cannot be negative.
+
+
+The program should not crash from normal user mistakes.
+
+
+============================================================
+               🧪 HOUR 6 — TESTING
+============================================================
+
+NOW STOP ADDING FEATURES.
+
+TEST EVERYTHING.
+
+
+------------------------------------------------------------
+TEST 1 — PATIENT
+------------------------------------------------------------
+
+Add:
+
+P001
+Rahul
+24
+9876543210
+
+Expected:
+
+SUCCESS
+
+
+------------------------------------------------------------
+TEST 2 — DUPLICATE PATIENT
+------------------------------------------------------------
+
+Add P001 again.
+
+Expected:
+
+ERROR
+
+
+------------------------------------------------------------
+TEST 3 — SEARCH PATIENT
+------------------------------------------------------------
+
+Search P001.
+
+Expected:
+
+Rahul
+
+
+------------------------------------------------------------
+TEST 4 — DOCTOR
+------------------------------------------------------------
+
+Add:
+
+D001
+Dr. Sharma
+Cardiology
+800
+
+Expected:
+
+SUCCESS
+
+
+------------------------------------------------------------
+TEST 5 — APPOINTMENT
+------------------------------------------------------------
+
+Create:
+
+P001
+D001
+2026-08-10
+10:30
+
+Expected:
+
+SUCCESS
+
+
+------------------------------------------------------------
+TEST 6 — INVALID APPOINTMENT
+------------------------------------------------------------
+
+Create:
+
+P999
+D001
+2026-08-10
+10:30
+
+Expected:
+
+ERROR:
+Patient does not exist.
+
+
+------------------------------------------------------------
+TEST 7 — BILL
+------------------------------------------------------------
+
+Doctor:
+800
+
+Medicine:
+450
+
+Test:
+300
+
+Expected:
+
+Total = 1550
+
+
+------------------------------------------------------------
+TEST 8 — REPORT
+------------------------------------------------------------
+
+Expected:
+
+Correct totals.
+
+
+------------------------------------------------------------
+TEST 9 — SAVE
+------------------------------------------------------------
+
+Add data.
+
+Save.
+
+Close program.
+
+
+------------------------------------------------------------
+TEST 10 — LOAD
+------------------------------------------------------------
+
+Open program.
+
+Load data.
+
+Expected:
+
+Previously saved data appears.
+
+
+============================================================
+              🤝 TEAMWORK TEST
+============================================================
+
+This is NOT finished just because the program works.
+
+
+STEP 1:
+
+Developer A reviews Developer B's code.
+
+
+STEP 2:
+
+Developer B reviews Developer A's code.
+
+
+STEP 3:
+
+Developer A explains:
+
+Appointments
+Billing
+
+
+STEP 4:
+
+Developer B explains:
+
+Patients
+Doctors
+
+
+STEP 5:
+
+Both explain:
+
+main.py
+
+
+If both developers understand the complete program:
+
+TEAMWORK = PASS
+
+
+============================================================
+                🧪 FINAL DEMO
+============================================================
+
+At the end of the day, start the application
+from an empty state.
+
+Perform this sequence:
+
+1. Add 3 patients
+2. Add 2 doctors
+3. Create 3 appointments
+4. Create 3 bills
+5. View patients
+6. View doctors
+7. View appointments
+8. View bills
+9. Show report
+10. Save data
+11. Exit
+12. Start again
+13. Load data
+14. Show report again
+
+
+The data should still exist.
+
+
+============================================================
+               🏆 DEFINITION OF DONE
+============================================================
+
+The project is COMPLETE when:
+
+[ ] Patients work
+[ ] Doctors work
+[ ] Appointments work
+[ ] Billing works
+[ ] Reports work
+[ ] Search works
+[ ] Delete/cancel works
+[ ] Validation works
+[ ] JSON save works
+[ ] JSON load works
+[ ] Invalid input doesn't crash the program
+[ ] All 10 tests pass
+[ ] Both developers reviewed the code
+[ ] Both developers understand the whole project
+[ ] GitHub repository is updated
+[ ] README explains how to run the project
+
+
+============================================================
+              🚫 DO NOT ADD THESE YET
+============================================================
+
+Do NOT add:
+
+❌ Login system
+❌ Password encryption
+❌ Doctor roles
+❌ Receptionist roles
+❌ Medical records
+❌ Advanced analytics
+❌ Database
+❌ GUI
+❌ Web application
+❌ AI
+❌ Machine Learning
+❌ Pandas
+❌ NumPy
+
+
+WHY?
+
+Because the goal is:
+
+BUILD → TEST → FINISH
+
+in ONE DAY.
+
+
+============================================================
+              🔥 IF YOU FINISH EARLY
+============================================================
+
+Only if everything above is completely working:
+
+OPTION 1:
+Add appointment conflict detection.
+
+Example:
+
+D001
+10:30
+
+already booked.
+
+New appointment:
+
+D001
+10:30
+
+Expected:
+
+ERROR:
+Doctor already booked.
+
+
+OPTION 2:
+Add bill discount.
+
+Subtotal:
+1550
+
+Discount:
+50
+
+Final:
+1500
+
+
+OPTION 3:
+Add sorting:
+
+Patients by name.
+
+Bills by amount.
+
+Doctors by consultation fee.
+
+
+Choose ONLY ONE.
+
+Do not start another large feature.
+
+
+============================================================
+                 📌 PROJECT PHILOSOPHY
+============================================================
+
+This project is NOT supposed to be:
+
+"Who can write the most code?"
+
+It is supposed to test:
+
+PROBLEM SOLVING
+       +
+PYTHON
+       +
+TEAMWORK
+       +
+GIT
+       +
+DEBUGGING
+       +
+COMMUNICATION
+
+
+A smaller project that both of you completely understand
+is much better than a huge project that neither of you
+can explain.
+
+
+============================================================
+                  🚀 START HERE
+============================================================
+
+TOMORROW:
+
+15–20 min
+→ Planning
+
+1 hour
+→ Patients + Doctors
+
+1 hour
+→ Appointments + Billing
+
+1 hour
+→ Integration + Main Menu
+
+1 hour
+→ Reports + JSON
+
+1 hour
+→ Error handling + Testing
+
+30–60 min
+→ Final testing + GitHub + README
+
+
+FINAL RESULT:
+
+A working small Clinic Management System
+built by TWO developers
+in ONE DAY.
+
+
+============================================================
+                         END
+============================================================
