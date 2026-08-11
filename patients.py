@@ -1,16 +1,24 @@
-patients = []
+# All Thing Has Been Fixed this File Has been Completly Ready
+# core Logic and code of Patients.py by Ayush  
+# adding json Functionality by mitesh
 
-def add_patient():
+import json
 
-    add_id =   input("Enter a parients ID : ")
+file_path = "./data/Patients.json"
+try:
+    with open(file_path, 'r') as R_Appointment:
+        data = json.load(R_Appointment)
+except json.decoder.JSONDecodeError:
+        # Triggered if the file has text, but isn't valid JSON
+        data = []
+        
+patients = data
+
+def add_patient(add_id,add_name,add_phone,add_age ):
     for patient in patients : 
         if patient["id"] == add_id :
-            print("this id is alredy exist")
-            return
+            return False
         
-    add_name = input("Enter a patients Name :")
-    add_phone = input("Enter a patients Mobile NUm :")
-    add_age = input("Enter a patients Age :")
 
     patient = {
         "id" : add_id,
@@ -19,61 +27,45 @@ def add_patient():
         "phone" : add_phone
     }
     patients.append(patient)
+    
+    with open(file_path, 'w') as W_Petients:
+        data = json.dump(patients, W_Petients, indent=4)
 
-    print("patient Details add succsesfully")
+    return True
 
 
 
 
 def view_patients():
+    return patients
 
-    if not patients:
-        print("no more patients")
-        return
 
-    for patient in patients:
-        print("patient detaild : " )
-        print("patient id =", patient["id"])
-        print("patient name =", patient["name"])
-        print("patient age =", patient["age"])
-        print("patient phone=", patient["phone"])
-
-def search_patient():
-
-    serach_id = input("enter a patients id ")
-
+def search_patient(serach_id):
 
     found = False
-    
     for patient in patients:
-
         if patient["id"] == serach_id:
-            print("patient id =", patient["id"])
-            print("patient name =", patient["name"])
-            print("patient age =", patient["age"])
-            print("patient phone=", patient["phone"])
             found = True
-    if found == False :
-        print("patient not found")
+            
+    return found
 
-def delete_patient():
-
-    delete_id = input("enter patirnts id for delete :")
-    found = False
-
+def delete_patient(delete_id):
     for patient in patients:
-       if  patient["id"]==delete_id:
+       if  patient["id"]==delete_id.upper():
            patients.remove(patient)
-           print("patient detaild delete sucssefully")
-           found=True
-           break
-       if found==False:
-           print("patient id not found" )
-
+           
+           with open(file_path, 'w') as W_Petients:
+                data = json.dump(patients, W_Petients, indent=4)
+           return True
+       
+    return False
         
 
-add_patient()
-add_patient()
-view_patients()
-search_patient()
-delete_patient()
+add_patient("P001","Mitesh Vegad","718273081212", "19")
+
+
+# add_patient()
+# print(view_patients())
+# print(search_patient("P001"))
+# print(delete_patient("P001"))
+# print(view_patients())

@@ -31,17 +31,31 @@ def create_appointment(id,patient_id, doctor_id, date, time ) :
     # 10:30
     
     # logic for pentiate already exits
-    pentiate  = True
+    try:
+        Patients_file_path = "./data/Patients.json" 
+        with open(Patients_file_path,'r') as Patients_file:
+            Patients = json.load(Patients_file)
+    
+    except json.decoder.JSONDecodeError:
+        return False
+        
+    is_Patient = False   
+    for Patient in Patients:
+        if(Patient["id"] == patient_id):
+            is_Patient = True
+
+    if(not is_Patient):
+        return is_Patient
     
     # logic doctor already exitst
-    doctor = True
+    # doctor = True
     
     Appoinment = {}
     # logic to check if it already exits 
     if  len(Appoinments) > 0:  #if Appinments if not empty list then 
         for Apnmt in Appoinments :
             if Apnmt.get("id") == id :
-                return False # means alreadt exits the appointment  
+                return True # means alreadt exits the appointment  
             
     Appoinment["id"] = id
     Appoinment["patient_id"] = patient_id
@@ -62,8 +76,8 @@ def view_appointments():
 
 def cancel_appointment(Appoingment_id):
     if(len(Appoinments) == 0):
-        
         return False
+    
     for apmt in Appoinments:
         if(apmt.get("id") == Appoingment_id):
             # remove from list 
@@ -75,9 +89,8 @@ def cancel_appointment(Appoingment_id):
     
     return False
         
-# create_appointment("A001", "P001", "D001",  "2026-08-10",  "10:30")
-# create_appointment("A002", "P002", "D002",  "2026-08-10",  "10:12")
-# create_appointment("A003", "P003", "D003",  "2026-08-10",  "10:12")
+# print(create_appointment("A001", "P001", "D001",  "2026-08-10",  "10:30"))
+# print(create_appointment("A003", "P003", "D003",  "2026-08-10",  "10:12"))
 
 # print(Appoinments)
 # cancel_appointment("A001")  
