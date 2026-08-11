@@ -44,6 +44,7 @@ def search_patient():
 
 
     found = False
+    
     for patient in patients:
 
         if patient["id"] == serach_id:

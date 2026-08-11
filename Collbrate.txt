@@ -16,7 +16,7 @@ TOOLS:
 Python
 VS Code
 VS Code Live Share
-Git + GitHub
+Git + GitHubc
 
 IMPORTANT:
 The goal is NOT to build a huge application.
@@ -113,14 +113,14 @@ Do NOT create more files unless you actually need them.
                  👥 TEAM DIVISION
 ============================================================
 
-             DEVELOPER A
+             DEVELOPER A(Ayush)
                    │
           ┌────────┴────────┐
           ↓                 ↓
       PATIENTS           DOCTORS
 
 
-             DEVELOPER B
+             DEVELOPER B(Mitesh) 
                    │
           ┌────────┴────────┐
           ↓                 ↓
@@ -145,7 +145,7 @@ Do NOT create more files unless you actually need them.
 TIME:
 15–20 minutes
 
-DO NOT CODE YET.
+DO NOT CODE YET. 
 
 Together decide:
 
