@@ -3,6 +3,12 @@
         "id": "D001",
         "name": "Dr. Sharma",
         "specialization": "Cardiology",
-        "fee": 800
+        "fee": "\u20b9800"
+    },
+    {
+        "id": "D002",
+        "name": "Dr. mitesh",
+        "specialization": "cardio",
+        "fee": "\u20b9230"
     }
 ]

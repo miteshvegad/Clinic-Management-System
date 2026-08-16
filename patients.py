@@ -17,7 +17,7 @@ patients = data
 def add_patient(add_id,add_name,add_age,add_phone ):
     for patient in patients : 
         if patient["id"] == add_id :
-            return False
+            return False,"Pentient Already Exists.."
         
 
     patient = {
