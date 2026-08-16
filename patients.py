@@ -6,15 +6,15 @@ import json
 
 file_path = "./data/Patients.json"
 try:
-    with open(file_path, 'r') as R_Appointment:
-        data = json.load(R_Appointment)
+    with open(file_path, 'r') as R_Pentient:
+        data = json.load(R_Pentient)
 except json.decoder.JSONDecodeError:
         # Triggered if the file has text, but isn't valid JSON
         data = []
         
 patients = data
 
-def add_patient(add_id,add_name,add_phone,add_age ):
+def add_patient(add_id,add_name,add_age,add_phone ):
     for patient in patients : 
         if patient["id"] == add_id :
             return False
@@ -43,11 +43,14 @@ def view_patients():
 def search_patient(serach_id):
 
     found = False
+    patient_data = None
     for patient in patients:
         if patient["id"] == serach_id:
             found = True
+            patient_data = patient
             
-    return found
+            
+    return found,patient_data
 
 def delete_patient(delete_id):
     for patient in patients:
@@ -60,8 +63,10 @@ def delete_patient(delete_id):
        
     return False
         
-
-add_patient("P001","Mitesh Vegad","718273081212", "19")
+        
+        
+# Sample data 
+# add_patient("P001","Rahul","24", "9876543210")
 
 
 # add_patient()

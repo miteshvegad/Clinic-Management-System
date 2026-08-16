@@ -1,0 +1,10 @@
+[
+    {
+        "bill_id": "B001",
+        "patient_id": "P001",
+        "doctor_fee": 800,
+        "medicine": 450,
+        "test": 300,
+        "Total Bill :": 1550
+    }
+]

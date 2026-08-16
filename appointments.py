@@ -5,6 +5,8 @@ in main file do for this :  Formate the Data and Time  for create_appointment
 
 '''
 import json
+import patients 
+import doctors
 
 file_path = "./data/Appoinments.json"
 
@@ -26,36 +28,27 @@ Appoinments =  data
 
 def create_appointment(id,patient_id, doctor_id, date, time ) : 
     # sample data for check if the pentiate and Doctors are exists 
-    # P001 
-    # D001
-    # 10:30
-    
     # logic for pentiate already exits
-    try:
-        Patients_file_path = "./data/Patients.json" 
-        with open(Patients_file_path,'r') as Patients_file:
-            Patients = json.load(Patients_file)
-    
-    except json.decoder.JSONDecodeError:
-        return False
         
-    is_Patient = False   
-    for Patient in Patients:
-        if(Patient["id"] == patient_id):
-            is_Patient = True
+    is_Patient = patients.search_patient(patient_id)[0]   
 
     if(not is_Patient):
-        return is_Patient
+        return is_Patient,"Petient Not Exits !"
     
     # logic doctor already exitst
-    # doctor = True
+            
+    is_doc = doctors.search_doctor(doctor_id)[0]  
+    
+    if(not is_doc):
+        return is_doc,"Doctor Not Exits !"
+    
     
     Appoinment = {}
     # logic to check if it already exits 
     if  len(Appoinments) > 0:  #if Appinments if not empty list then 
         for Apnmt in Appoinments :
             if Apnmt.get("id") == id :
-                return True # means alreadt exits the appointment  
+                return True, "Appoinment, Already Created" # means alreadt exits the appointment  
             
     Appoinment["id"] = id
     Appoinment["patient_id"] = patient_id
